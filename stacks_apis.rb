@@ -50,8 +50,8 @@ for line in configuration
             limit = line[1]
         elsif line[0] == "analytics_url"
             analytics_url = line[1]
-        elsif line[0] == "path_xmxl"
-            path_xmxl = line[1]
+        elsif line[0] == "path_xmxl_univ"
+            path_xmxl_univ = line[1]
         elsif line[0] == "analytics_apikey"
             analytics_apikey = line[1]
         elsif line[0] == "alma_bib_apikey"
