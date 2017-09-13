@@ -1,0 +1,6 @@
+# Files to ignore #
+###################
+*.cfg
+*.xml
+*.txt
+setId
