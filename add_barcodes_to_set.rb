@@ -12,16 +12,11 @@ def add_members(url,apikey,values)
 
     outcome = 1
     begin
-=begin
-        url = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/sets/13170727290002486'
-        values   = '<set><members><member><id>000011151287</id></member><member><id>000011537344</id></member><member><id>010002582406</id></member><member><id>010002977142</id></member><member><id>010002740484</id></member></members></set>'
-        headers  = { 'Content-Type' => 'application/xml' , :params => { CGI::escape('id_type') => 'BARCODE',CGI::escape('op') => 'add_members',CGI::escape('apikey') => 'l7xxaa2eb31e052643c093b484bd3d81617d' } }
-        response = RestClient::Request.execute :method => 'POST', :url => url  , :payload => values, :headers => headers
-=end
         headers = { 'Content-Type' => 'application/xml' , :params => { CGI::escape('id_type') =>'BARCODE' , CGI::escape('op') => 'add_members' , CGI::escape('apikey') => apikey } }
         response = RestClient::Request.execute :method => 'POST' , :url => url , :payload => values , :headers => headers
+        outcome = 0
     rescue RestClient::ExceptionWithResponse => e
-        puts e.response
+        return e.response,outcome
     end
     return response,outcome
 
@@ -67,4 +62,8 @@ rescue
     STDERR.puts 'Could not read xml file'
 end
 response,outcome = add_members(url,apikey,values)
-puts response
+if outcome == 0
+    STDOUT.puts response
+else
+    STDERR.puts response
+end

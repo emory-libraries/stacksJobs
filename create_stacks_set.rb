@@ -58,5 +58,6 @@ response,outcome = post_stacks_set(url,apikey,xml)
 if outcome == 0
     doc = REXML::Document.new response
     setId = doc.elements["set/id"].text
-    puts setId
+    File.write('files/setId', setId)
+#    puts setId
 end
