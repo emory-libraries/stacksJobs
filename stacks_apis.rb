@@ -65,7 +65,7 @@ for line in configuration
 end
 
 # pass arguments to analyitcs api method
-xml,outcome = getAnalytics(analytics_url,path_xmxl,analytics_apikey,limit)
+xml,outcome = getAnalytics(analytics_url,path_xmxl_univ,analytics_apikey,limit)
 #puts xml
 # parses XML
 if outcome == 0
@@ -92,7 +92,7 @@ if outcome == 0
             string = string << "<member><id>#{barcode}</id></member>"
         end
     xml = "<set><members>#{string}</members></set>"
-    puts xml
+    STDOUT.puts xml
     else
         workToDo = true
     end
