@@ -20,7 +20,7 @@ def delete_stacks_set(url,apikey)
         response = RestClient::Request.execute :method => 'DELETE' , :url => url , :headers => headers
         outcome = 0
     rescue RestClient::ExceptionWithResponse => e
-        e.response
+        return e.response,outcome
     end
     return response,outcome
 
@@ -60,4 +60,8 @@ rescue
     STDERR.puts 'Could not parse configuration file'
 end
 response,outcome = delete_stacks_set(url,apikey)
-print outcome
+if outcome == 0
+    STDOUT.puts response
+else
+    STDERR.puts response
+end

@@ -57,7 +57,7 @@ rescue
 end
 response,outcome = run_job(url,apikey,values)
 if outcome == 0
-    STDOUT.puts response
+    STDOUT.puts 'Done'
 else
     STDERR.puts response
 end
