@@ -4,6 +4,7 @@ Author: Alex Cooper
 Date: 09/13/2017
 Purpose: Run the change items job for Stacks team
 =end
+
 require 'rexml/document'
 require 'rest_client'
 require 'cgi'
@@ -17,7 +18,7 @@ def run_job(url,apikey,values)
         response = RestClient::Request.execute :method => 'POST' , :url => url , :payload => values , :headers => headers
         outcome = 0
     rescue RestClient::ExceptionWithResponse => e
-        STDERR.puts e.response
+        return e.response,outcome
     end
     return response,outcome
 
@@ -54,5 +55,9 @@ begin
 rescue
     STDERR.puts 'Could not parse configuration file'
 end
-puts values
 response,outcome = run_job(url,apikey,values)
+if outcome == 0
+    STDOUT.puts response
+else
+    STDERR.puts response
+end
