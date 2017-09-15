@@ -18,8 +18,8 @@ def getAnalytics(url,path,apikey,limit)
     begin
         response = RestClient::Request.execute :method => 'GET', :url => url, :headers => headers
         outcome = 0
-    rescue
-        STDERR.puts 'API call failed'
+    rescue RestClient::ExceptionWithResponse => e
+        return e.response,outcome
     end
     return response,outcome
 end
@@ -33,6 +33,9 @@ def parseAnalyticsXml(xml)
     barcodes = xml.elements.each("QueryResult/ResultXml/rowset/Row/Column9") { |element| element.text }
     return barcodes,outcome
 end
+
+# input variable from command line argument
+input_arg = ARGV[0]
 
 # open file with api information
 begin
@@ -50,6 +53,10 @@ for line in configuration
             limit = line[1]
         elsif line[0] == "analytics_url"
             analytics_url = line[1]
+        elsif line[0] == "path_xmxl_bus"
+            path_xmxl_bus = line[1]
+        elsif line[0] == "path_xmxl_chem"
+            path_xmxl_chem = line[1]
         elsif line[0] == "path_xmxl_univ"
             path_xmxl_univ = line[1]
         elsif line[0] == "path_wd"
@@ -67,7 +74,11 @@ for line in configuration
 end
 
 # pass arguments to analyitcs api method
-xml,outcome = getAnalytics(analytics_url,path_xmxl_univ,analytics_apikey,limit)
+if input_arg == "univ"
+    path = path_xmxl_univ
+#    puts path
+end
+    xml,outcome = getAnalytics(analytics_url,path,analytics_apikey,limit)
 #puts xml
 # parses XML
 if outcome == 0
