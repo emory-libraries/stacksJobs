@@ -52,6 +52,8 @@ for line in configuration
             analytics_url = line[1]
         elsif line[0] == "path_xmxl_univ"
             path_xmxl_univ = line[1]
+        elsif line[0] == "path_wd"
+            path_wd = line[1]
         elsif line[0] == "analytics_apikey"
             analytics_apikey = line[1]
         elsif line[0] == "alma_bib_apikey"
@@ -91,8 +93,12 @@ if outcome == 0
             barcode = barcode.to_s
             string = string << "<member><id>#{barcode}</id></member>"
         end
-    xml = "<set><members>#{string}</members></set>"
-    STDOUT.puts xml
+        if not string.empty?
+            xml = "<set><members>#{string}</members></set>"
+            STDOUT.puts xml
+        else
+            STDOUT.puts 'end'
+        end
     else
         workToDo = true
     end

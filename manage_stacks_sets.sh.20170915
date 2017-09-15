@@ -9,19 +9,17 @@ add_members="/home/alex/stacksJobs/files/addMembers.xml"
 set_id_file="/home/alex/stacksJobs/files/setId"
 
 ruby ${stacks_api} > ${add_members}
-cat ${add_members} |\
-while read line; do
-    if [ ${line} != "end" ]; then
-        ruby ${create_set}
-        ruby ${add_barcodes}
-        status=`ruby ${run_job}`
-        if [ ${status} == "Done" ]; then
-            ruby ${delete_set}
-        fi
-    else
-        echo "no barcodes found"
-        exit 1
+cat ${add_members}
+if [ ${add_members} != "end" ]; then
+    ruby ${create_set}
+    ruby ${add_barcodes}
+    status=`ruby ${run_job}`
+    if [ ${status} == "Done" ]; then
+        ruby ${delete_set}
     fi
-done
+else
+    echo "fail"
+    exit 1
+fi
 
 exit 0
