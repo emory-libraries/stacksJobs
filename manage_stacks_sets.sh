@@ -1,5 +1,22 @@
 #!/bin/bash
 
+function run_scripts {
+    cat ${add_members} |\
+    while read line; do
+        if [ ${line} != "end" ]; then
+            ruby ${create_set}
+            ruby ${add_barcodes}
+            status=`ruby ${run_job}`
+            if [ ${status} == "Done" ]; then
+                ruby ${delete_set}
+            fi
+        else
+            echo "no barcodes found"
+            exit 1
+        fi
+    done
+}
+
 stacks_api="/home/alex/stacksJobs/stacks_apis.rb"
 create_set="/home/alex/stacksJobs/create_stacks_set.rb"
 delete_set="/home/alex/stacksJobs/delete_stacks_set.rb"
@@ -8,20 +25,23 @@ run_job="/home/alex/stacksJobs/run_stacks_job.rb"
 add_members="/home/alex/stacksJobs/files/addMembers.xml"
 set_id_file="/home/alex/stacksJobs/files/setId"
 
-ruby ${stacks_api} > ${add_members}
-cat ${add_members} |\
-while read line; do
-    if [ ${line} != "end" ]; then
-        ruby ${create_set}
-        ruby ${add_barcodes}
-        status=`ruby ${run_job}`
-        if [ ${status} == "Done" ]; then
-            ruby ${delete_set}
-        fi
-    else
-        echo "no barcodes found"
-        exit 1
-    fi
-done
+#Robert W. Woodruff
+ruby ${stacks_api} "univ" > ${add_members}
+run_scripts
+#Business
+ruby ${stacks_api} "bus" > ${add_members}
+run_scripts
+#SciCom
+ruby ${stacks_api} "chem" > ${add_members}
+run_scripts
+#Health
+ruby ${stacks_api} "hlth" > ${add_members}
+run_scripts
+#Library Service Center
+ruby ${stacks_api} "lsc" > ${add_members}
+run_scripts
+#Music and Media
+ruby ${stacks_api} "musme" > ${add_members}
+run_scripts
 
 exit 0

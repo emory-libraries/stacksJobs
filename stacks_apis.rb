@@ -59,6 +59,12 @@ for line in configuration
             path_xmxl_chem = line[1]
         elsif line[0] == "path_xmxl_univ"
             path_xmxl_univ = line[1]
+        elsif line[0] == "path_xmxl_hlth"
+            path_xmxl_hlth = line[1]
+        elsif line[0] == "path_xmxl_lsc"
+            path_xmxl_lsc = line[1]
+        elsif line[0] == "path_xmxl_musme"
+            path_xmxl_musme = line[1]
         elsif line[0] == "path_wd"
             path_wd = line[1]
         elsif line[0] == "analytics_apikey"
