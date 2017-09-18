@@ -1,7 +1,8 @@
 # Files to ignore #
 ###################
 *.cfg
-*.xml
 *.txt
 *.swp
 setId
+addMembers.xml
+create_set_result.xml
