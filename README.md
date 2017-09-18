@@ -62,9 +62,11 @@ apikey=[apikey]
 
 #### Denepndency: set.xml
 
+#### Output: setId (a file string the set ID)
+
 ----
 
-## Add Memebers to Stacks Set
+## Add Members to Stacks Set
 
 #### Purpose: Add members to set based on barcodes
 
@@ -74,6 +76,8 @@ apikey=[apikey]
 url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/sets
 apikey=[apikey]
 ```
+
+#### Dependency: setId
 
 #### Dependency: addMembers.xml
 
@@ -90,6 +94,23 @@ url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/jobs/M18
 apikey=[apikey]
 ```
 
+#### Dependency: setId
+
 #### Dependency: one of 6 job.xml
+
+----
+
+## Delete Stacks Set
+
+#### Purpose: Delete the set of items
+
+#### Dependency: create_set.cfg
+
+```
+url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/sets
+apikey=[apikey]
+```
+
+#### Dependency: setId
 
 ----
