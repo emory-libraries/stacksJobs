@@ -24,15 +24,30 @@ def run_job(url,apikey,values)
 
 end
 
+# process argument
+input_arg = ARGV[0]
+if input_arg == "univ"
+    job_xml = File.open("files/job_univ.xml")
+elsif input_arg == "bus"
+    job_xml = File.open("files/job_bus.xml")
+elsif input_arg == "chem"
+    job_xml = File.open("files/job_chem.xml")
+elsif input_arg == "hlth"
+    job_xml = File.open("files/job_hlth.xml")
+elsif input_arg == "lsc"
+    job_xml = File.open("files/job_lsc.xml")
+elsif input_arg == "musme"
+    job_xml = File.open("files/job_musme.xml")
+end
 # build job xml
 begin
-    job_xml = File.open("files/job.xml")
     setId = File.open("files/setId")
     setId = setId.read
     setId = setId.chomp
     setId = setId.to_s
     job_xml = job_xml.read
     values = job_xml.sub! 'setId', setId
+    puts values
 rescue
     STDERR.puts 'Could not open and edit job xml'
 end

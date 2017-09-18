@@ -80,6 +80,12 @@ elsif input_arg == "chem"
     path = path_xmxl_chem
 elsif input_arg == "bus"
     path = path_xmxl_bus
+elsif input_arg == "hlth"
+    path = path_xmxl_hlth
+elsif input_arg == "lsc"
+    path = path_xmxl_lsc
+elsif input_arg == "musme"
+    path = path_xmxl_musme
 #    puts path
 end
     xml,outcome = getAnalytics(analytics_url,path,analytics_apikey,limit)
