@@ -76,6 +76,10 @@ end
 # pass arguments to analyitcs api method
 if input_arg == "univ"
     path = path_xmxl_univ
+elsif input_arg == "chem"
+    path = path_xmxl_chem
+elsif input_arg == "bus"
+    path = path_xmxl_bus
 #    puts path
 end
     xml,outcome = getAnalytics(analytics_url,path,analytics_apikey,limit)
