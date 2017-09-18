@@ -22,7 +22,7 @@ $bash manages_stacks_sets.sh
 
 ## Stacks Apis [stacks_apis.rb](https://github.com/Emory-LCS/stacksJobs/blob/master/stacks_apis.rb)
 
-#### Purpose: Make analytics call and parse Analytics response
+#### Purpose: Make Analytics call and parse Analytics response
 
 #### Dependency: stacks.cfg
 
