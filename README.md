@@ -10,7 +10,7 @@
 
 ----
 
-## Manage Stacks Sets
+## Manage Stacks Sets [manage_stacks_sets.sh](https://github.com/Emory-LCS/stacksJobs/blob/master/manage_stacks_sets.sh)
 
 #### Purpose: Run the scripts from the crontab
 
@@ -20,7 +20,7 @@ $bash manages_stacks_sets.sh
 
 ----
 
-## Stacks Apis
+## Stacks Apis [stacks_apis.rb](https://github.com/Emory-LCS/stacksJobs/blob/master/stacks_apis.rb)
 
 #### Purpose: Make analytics call and parse Analytics response
 
@@ -49,7 +49,7 @@ alma_bib_url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs
 
 ----
 
-## Create Stacks Items Set
+## Create Stacks Items Set [create_stacks_set.rb](https://github.com/Emory-LCS/stacksJobs/blob/master/create_stacks_set.rb)
 
 #### Purpose: Creates set and returns its ID
 
@@ -66,7 +66,7 @@ apikey=[apikey]
 
 ----
 
-## Add Members to Stacks Set
+## Add Members to Stacks Set [add_barcodes_to_set.rb](https://github.com/Emory-LCS/stacksJobs/blob/master/add_barcodes_to_set.rb)
 
 #### Purpose: Add members to set based on barcodes
 
@@ -83,7 +83,7 @@ apikey=[apikey]
 
 ----
 
-## Run Change Item Job
+## Run Change Item Job [run_stacks_job.rb](https://github.com/Emory-LCS/stacksJobs/blob/master/run_stacks_job.rb)
 
 #### Purpose: Run the change items job for Stacks team
 
@@ -100,7 +100,7 @@ apikey=[apikey]
 
 ----
 
-## Delete Stacks Set
+## Delete Stacks Set [delete_stacks_set.rb](https://github.com/Emory-LCS/stacksJobs/blob/master/delete_stacks_set.rb)
 
 #### Purpose: Delete the set of items
 
