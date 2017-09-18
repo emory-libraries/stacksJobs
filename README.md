@@ -15,7 +15,7 @@
 #### Purpose: Run the scripts from the crontab
 
 ```
-$bash manages_stacks_sets.sh
+$bash manage_stacks_sets.sh
 ```
 
 ----
