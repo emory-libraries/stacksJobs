@@ -6,9 +6,11 @@ function run_scripts {
         if [ ${line} != "end" ]; then
             ruby ${create_set}
             ruby ${add_barcodes}
-            ruby ${run_job} ${library}
-            sleep 2m
-            ruby ${delete_set}
+            status=`ruby ${run_job} ${library}`
+            if [ ${status} == "Done" ]; then
+                sleep 2m
+                ruby ${delete_set}
+            fi
         else
             echo "no barcodes found"
             exit 1
