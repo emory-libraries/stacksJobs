@@ -92,6 +92,8 @@ elsif input_arg == "lsc"
     path = path_xmxl_lsc
 elsif input_arg == "musme"
     path = path_xmxl_musme
+elsif input_arg == "wd"
+    path = path_wd
 #    puts path
 end
     xml,outcome = getAnalytics(analytics_url,path,analytics_apikey,limit)

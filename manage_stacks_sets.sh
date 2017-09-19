@@ -48,5 +48,8 @@ run_scripts
 ruby ${stacks_api} "musme" > ${add_members}
 library="musme"
 run_scripts
+ruby ${stacks_api} "wd" > ${add_members}
+library="wd"
+run_scripts
 
 exit 0

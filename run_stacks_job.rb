@@ -38,6 +38,8 @@ elsif input_arg == "lsc"
     job_xml = File.open("files/job_lsc.xml")
 elsif input_arg == "musme"
     job_xml = File.open("files/job_musme.xml")
+elsif input_arg == "wd"
+    job_xml = File.open("files/job_withdraw.xml")
 end
 # build job xml
 begin
@@ -63,12 +65,19 @@ begin
         line = line.split("=")
         if line[0] == "url"
             url = line[1]
+        elsif line[0] == "wd_url"
+            wd_url = line[1]
         elsif line[0] == "apikey"
             apikey = line[1]
         end
     end
 rescue
     STDERR.puts 'Could not parse configuration file'
+end
+if input_arg == "wd"
+    url = wd_url
+else
+    url = url
 end
 response,outcome = run_job(url,apikey,values)
 if outcome == 0
