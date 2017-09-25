@@ -132,5 +132,5 @@ if outcome == 0
         workToDo = true
     end
 else
-    STDERR.puts 'getAnalytics failed'
+    STDERR.puts 'getAnalytics failed ' + xml
 end
