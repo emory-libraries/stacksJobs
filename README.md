@@ -92,6 +92,7 @@ alma_bib_url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/bibs
 
 ```
 url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/sets
+wd_url=https://api-na.hosted.exlibrisgroup.com/almaws/v1/conf/jobs/M157
 apikey=[apikey]
 ```
 
