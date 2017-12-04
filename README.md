@@ -12,7 +12,7 @@
 
 ## Manage Stacks Sets [manage_stacks_sets.sh](https://github.com/Emory-LCS/stacksJobs/blob/master/manage_stacks_sets.sh)
 
-#### Purpose: Run the xmxl amd wd scripts from the crontab
+#### Purpose: Run the xmxl and wd scripts from the crontab
 
 ```
 $bash manage_stacks_sets.sh
