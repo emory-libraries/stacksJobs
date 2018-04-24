@@ -7,7 +7,6 @@ function run_scripts {
             ruby ${create_set}
             ruby ${add_barcodes}
             ruby ${run_job} ${library}
-            sleep 2m
             ruby ${delete_set}
         else
             echo "no barcodes found"
