@@ -2,7 +2,7 @@
 
 ### Title: Stacks Jobs
 
-### Author: Alex Cooper
+### Authors: Alex Cooper and Lisa Hamlett
 
 ### Purpose: Automate stacks data processes
 
